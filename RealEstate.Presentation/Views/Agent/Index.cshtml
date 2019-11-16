@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RealEstate.Presentation.Models.Property.PropertyViewModel>
+﻿@model IEnumerable<RealEstate.Presentation.Models.Agent.AgentViewModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -10,7 +10,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.RealEstateId)
+                @Html.DisplayNameFor(model => model.RealEstateAgentId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.RealEstateAgentName)
@@ -25,7 +25,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.RealEstateId)
+                @Html.DisplayFor(modelItem => item.RealEstateAgentId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.RealEstateAgentName)

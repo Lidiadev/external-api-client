@@ -1,20 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RealEstate.Presentation.Common.Constants;
-using RealEstate.Presentation.Models.Property;
 using RealEstate.Presentation.Services.Interfaces;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace RealEstate.Presentation.Controllers
 {
-    public class PropertyController : Controller
+    public class AgentController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IPropertyService _propertyService;
 
-        public PropertyController(ILogger<HomeController> logger,
+        public AgentController(ILogger<HomeController> logger,
             IPropertyService propertyService)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

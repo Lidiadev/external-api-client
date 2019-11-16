@@ -1,4 +1,4 @@
-﻿using RealEstate.Presentation.Models.Property;
+﻿using RealEstate.Presentation.Models.Agent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,6 +11,6 @@ namespace RealEstate.Presentation.Services.Interfaces
         /// </summary>
         /// <param name="topElements">The number of the top agents.</param>
         /// <returns>The list of agents.</returns>
-        Task<IReadOnlyCollection<PropertyViewModel>> GetTopAsync(int topElements);
+        Task<IReadOnlyCollection<AgentViewModel>> GetTopAsync(int topElements);
     }
 }

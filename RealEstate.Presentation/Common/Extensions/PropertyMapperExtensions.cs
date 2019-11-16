@@ -1,5 +1,5 @@
 ﻿using RealEstate.Domain.Dtos;
-using RealEstate.Presentation.Models.Property;
+using RealEstate.Presentation.Models.Agent;
 using System;
 using System.Linq;
 
@@ -15,16 +15,16 @@ namespace RealEstate.Presentation.Common.Extensions
         /// </summary>
         /// <param name="dto">The model.</param>
         /// <returns>The <see cref="PropertyViewModel"/>.</returns>
-        public static PropertyViewModel ToViewModel(this IGrouping<int, PropertyDto> dto)
+        public static AgentViewModel ToViewModel(this IGrouping<int, PropertyDto> dto)
         {
             if (dto == null)
             {
                 throw new ArgumentNullException(nameof(dto));
             }
 
-            return new PropertyViewModel
+            return new AgentViewModel
             {
-                RealEstateId = dto.Key,
+                RealEstateAgentId = dto.Key,
                 RealEstateAgentName = dto.First().RealEstateAgentName,
                 Count = dto.Count()
             };

@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using RealEstate.Presentation.Common.Constants;
 using RealEstate.Presentation.Common.Extensions;
 using RealEstate.Presentation.Factories.Interfaces;
-using RealEstate.Presentation.Models.Property;
+using RealEstate.Presentation.Models.Agent;
 using RealEstate.Presentation.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -28,7 +28,7 @@ namespace RealEstate.Presentation.Services
         }
 
         /// <inheritdoc/>
-        public async Task<IReadOnlyCollection<PropertyViewModel>> GetTopAsync(int topElements)
+        public async Task<IReadOnlyCollection<AgentViewModel>> GetTopAsync(int topElements)
             => (await GetAllAsync())
                 .Select(x => x.ToViewModel())
                 .Take(Math.Min(topElements, Constants.MaxTopElements))

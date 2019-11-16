@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RealEstate.Presentation.Models.Property
+namespace RealEstate.Presentation.Models.Agent
 {
-    public class PropertyViewModel
+    public class AgentViewModel
     {
         [Display(Name = "Agent id")]
-        public long RealEstateId { get; set; }
+        public long RealEstateAgentId { get; set; }
 
         [Display(Name = "Agent name")]
         public string RealEstateAgentName { get; set; }
