@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using RealEstateWebApp.Models;
+using RealEstate.Presentation.Models;
 
-namespace RealEstateWebApp.Controllers
+namespace RealEstate.Presentation.Controllers
 {
     public class HomeController : Controller
     {

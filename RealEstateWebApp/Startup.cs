@@ -6,11 +6,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Polly;
-using RealEstateWebApp.Common.Configuration;
-using RealEstateWebApp.Factories;
-using RealEstateWebApp.Factories.Interfaces;
-using RealEstateWebApp.Services;
-using RealEstateWebApp.Services.Interfaces;
+using RealEstate.Presentation.Common.Configuration;
+using RealEstate.Presentation.Factories;
+using RealEstate.Presentation.Factories.Interfaces;
+using RealEstate.Presentation.Services;
+using RealEstate.Presentation.Services.Interfaces;
 
 namespace RealEstateWebApp
 {

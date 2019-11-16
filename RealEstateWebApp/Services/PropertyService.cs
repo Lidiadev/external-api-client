@@ -1,17 +1,17 @@
 ﻿using Domain.Common;
-using Domain.Dtos;
+using RealEstate.Domain.Dtos;
 using Microsoft.Extensions.Logging;
-using RealEstateWebApp.Common.Constants;
-using RealEstateWebApp.Common.Extensions;
-using RealEstateWebApp.Factories.Interfaces;
-using RealEstateWebApp.Models.Property;
-using RealEstateWebApp.Services.Interfaces;
+using RealEstate.Presentation.Common.Constants;
+using RealEstate.Presentation.Common.Extensions;
+using RealEstate.Presentation.Factories.Interfaces;
+using RealEstate.Presentation.Models.Property;
+using RealEstate.Presentation.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RealEstateWebApp.Services
+namespace RealEstate.Presentation.Services
 {
     /// <summary>
     /// The service for Properties.

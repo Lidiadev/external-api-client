@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RealEstateWebApp.Models.Property
+namespace RealEstate.Presentation.Models.Property
 {
     public class PropertyViewModel
     {

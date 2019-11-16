@@ -1,4 +1,4 @@
-﻿namespace RealEstateWebApp.Common.Constants
+﻿namespace RealEstate.Presentation.Common.Constants
 {
     /// <summary>
     /// Constants.

@@ -1,14 +1,14 @@
-﻿using Domain.Dtos;
+﻿using RealEstate.Domain.Dtos;
 using Domain.Interfaces;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using RealEstateWebApp.Common.Configuration;
-using RealEstateWebApp.Common.Extensions;
+using RealEstate.Presentation.Common.Configuration;
+using RealEstate.Presentation.Common.Extensions;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace RealEstateWebApp.Services
+namespace RealEstate.Presentation.Services
 {
     /// <summary>
     /// The API Client.

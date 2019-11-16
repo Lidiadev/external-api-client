@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace RealEstateWebApp.Common
+namespace RealEstate.Presentation.Common
 {
     public sealed class DefaultJsonSerializerOptions
     {

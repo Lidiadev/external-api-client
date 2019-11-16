@@ -1,6 +1,6 @@
 ﻿using Domain.Interfaces;
 
-namespace RealEstateWebApp.Factories.Interfaces
+namespace RealEstate.Presentation.Factories.Interfaces
 {
     public interface IApiClientFactory
     {

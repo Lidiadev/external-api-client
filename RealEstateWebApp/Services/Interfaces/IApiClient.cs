@@ -1,4 +1,4 @@
-﻿using Domain.Dtos;
+﻿using RealEstate.Domain.Dtos;
 using System.Threading.Tasks;
 
 namespace Domain.Interfaces

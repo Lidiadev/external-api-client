@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace Domain.Dtos
+namespace RealEstate.Domain.Dtos
 {
     /// <summary>
     /// The API response DTO.

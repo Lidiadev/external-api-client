@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace RealEstateWebApp.Common.Configuration
+namespace RealEstate.Presentation.Common.Configuration
 {
     [JsonObject("BaseUrls")]
     public class BaseUrls

@@ -3,7 +3,7 @@ using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace RealEstateWebApp.Common.Extensions
+namespace RealEstate.Presentation.Common.Extensions
 {
     /// <summary>
     /// Extensions for Stream.

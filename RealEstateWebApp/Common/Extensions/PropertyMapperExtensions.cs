@@ -1,9 +1,9 @@
-﻿using Domain.Dtos;
-using RealEstateWebApp.Models.Property;
+﻿using RealEstate.Domain.Dtos;
+using RealEstate.Presentation.Models.Property;
 using System;
 using System.Linq;
 
-namespace RealEstateWebApp.Common.Extensions
+namespace RealEstate.Presentation.Common.Extensions
 {
     /// <summary>
     /// Extensions to map a DTO to a Model.

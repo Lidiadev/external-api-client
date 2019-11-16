@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Domain.Dtos
+namespace RealEstate.Domain.Dtos
 {
     public class PropertyDto
     {

@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using RealEstateWebApp.Common.Constants;
-using RealEstateWebApp.Models.Property;
-using RealEstateWebApp.Services.Interfaces;
+using RealEstate.Presentation.Common.Constants;
+using RealEstate.Presentation.Models.Property;
+using RealEstate.Presentation.Services.Interfaces;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RealEstateWebApp.Controllers
+namespace RealEstate.Presentation.Controllers
 {
     public class PropertyController : Controller
     {

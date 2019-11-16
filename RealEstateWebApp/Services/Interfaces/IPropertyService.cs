@@ -1,8 +1,8 @@
-﻿using RealEstateWebApp.Models.Property;
+﻿using RealEstate.Presentation.Models.Property;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace RealEstateWebApp.Services.Interfaces
+namespace RealEstate.Presentation.Services.Interfaces
 {
     public interface IPropertyService
     {
