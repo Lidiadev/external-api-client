@@ -3,10 +3,10 @@ using Domain.Interfaces;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using RealEstate.Presentation.Common.Configuration;
-using RealEstate.Presentation.Common.Extensions;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using RealEstate.Presentation.Infrastructure.Interfaces;
 
 namespace RealEstate.Presentation.Services
 {
@@ -16,13 +16,18 @@ namespace RealEstate.Presentation.Services
     public class ApiClient : IApiClient
     {
         private readonly ILogger<ApiClient> _logger;
+        private readonly ISerializer<ApiResponseDto> _serializer;
         private readonly HttpClient _httpClient;
         private readonly PartnerApiCredentials _credentials;
 
-        public ApiClient(HttpClient httpClient, IOptions<PartnerApiCredentials> credentials, ILogger<ApiClient> logger)
+        public ApiClient(HttpClient httpClient, 
+            IOptions<PartnerApiCredentials> credentials,
+            ISerializer<ApiResponseDto> serializer,
+            ILogger<ApiClient> logger)
         {
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
             _credentials = credentials.Value ?? throw new ArgumentNullException(nameof(credentials));
+            _serializer = serializer ?? throw new ArgumentNullException(nameof(serializer));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
@@ -41,7 +46,7 @@ namespace RealEstate.Presentation.Services
                 }
 
                 using var contentStream = await response.Content.ReadAsStreamAsync();
-                return await contentStream.DeserializeFromJsonAsync<ApiResponseDto>();
+                return await _serializer.DeserializeAsync(contentStream);
             }
             catch(Exception ex)
             {

@@ -9,6 +9,8 @@ using Polly;
 using RealEstate.Presentation.Common.Configuration;
 using RealEstate.Presentation.Factories;
 using RealEstate.Presentation.Factories.Interfaces;
+using RealEstate.Presentation.Infrastructure;
+using RealEstate.Presentation.Infrastructure.Interfaces;
 using RealEstate.Presentation.Services;
 using RealEstate.Presentation.Services.Interfaces;
 
@@ -28,6 +30,7 @@ namespace RealEstateWebApp
         {
             services.AddControllersWithViews();
             services.AddSingleton<IPropertyService, PropertyService>();
+            services.AddSingleton(typeof(ISerializer<>), typeof(JsonSerializer<>));
 
             var baseUrls = new BaseUrls();
             Configuration.GetSection("baseUrls").Bind(baseUrls);

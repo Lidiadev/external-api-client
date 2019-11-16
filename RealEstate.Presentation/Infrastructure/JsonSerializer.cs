@@ -1,16 +1,15 @@
-﻿using System;
+﻿using RealEstate.Presentation.Common;
+using RealEstate.Presentation.Infrastructure.Interfaces;
+using System;
 using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace RealEstate.Presentation.Common.Extensions
+namespace RealEstate.Presentation.Infrastructure
 {
-    /// <summary>
-    /// Extensions for Stream.
-    /// </summary>
-    public static class StreamExtensions
+    public class JsonSerializer<T> : ISerializer<T>
     {
-        public async static Task<T> DeserializeFromJsonAsync<T>(this Stream stream)
+        public async Task<T> DeserializeAsync(Stream stream)
         {
             if (stream == null)
             {
@@ -19,7 +18,7 @@ namespace RealEstate.Presentation.Common.Extensions
 
             if (!stream.CanRead)
             {
-                throw new NotSupportedException("can't read from stream");
+                throw new NotSupportedException("The stream cannot be read.");
             }
 
             return await JsonSerializer.DeserializeAsync<T>(stream, DefaultJsonSerializerOptions.Options);
