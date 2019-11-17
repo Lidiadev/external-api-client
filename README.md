@@ -35,6 +35,23 @@ RealEstate is an ASP.NET Core MVC web application with the following feature:
 **Travis CI** has been used to run the tests.
 Each pushed commit runs the unit tests.
 
+## How to Run the Application
+* Replace in [appsettings.json](https://github.com/Lidiadev/external-api-client/blob/master/RealEstate.Presentation/appsettings.json) the `APIKey` and the `PartnerAPI` base Url:
+``` "PartnerAPI": {
+        "APIKey": "TBR"
+    },
+    "BaseUrls": {
+        "PartnerAPI": "TBR"
+    }
+```    
+* Replace the `SalesObjectsPath` the [Constants](https://github.com/Lidiadev/external-api-client/blob/master/RealEstate.Presentation/Common/Constants/ApiConstants.cs) file:
+```
+/// <summary>
+/// The path for objects which are on sale.
+/// </summary>
+public const string SaleObjectsPath = "TBR";
+```
+
 ## How To Run Unit Tests
 
 * Open solution in Visual Studio 2019
