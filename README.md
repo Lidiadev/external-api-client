@@ -66,6 +66,8 @@ Polly has been used to define a `Retry policy` for the `HttpClient`:
             TimeSpan.FromSeconds(10)
         }));
 ```
+## Memory Cache
+Memory Cache has been used to improve perfomance. The cached item has a sliding expiration and an absolute expiration. 
 
 ## How To Run Unit Tests
 
