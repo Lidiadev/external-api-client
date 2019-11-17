@@ -58,7 +58,7 @@ namespace RealEstate.UnitTests.Services
         {
             var responseMessage = new HttpResponseMessage
             {
-                Content = new FakeHttpContent(Constants.ApiReponse)
+                Content = new FakeHttpContent(TestData.ApiReponse)
             };
 
             return new HttpClient(new FakeHttpMessageHandler(responseMessage))
