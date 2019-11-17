@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace RealEstate.Presentation.Services
 {
@@ -20,19 +21,44 @@ namespace RealEstate.Presentation.Services
     {
         private ILogger<PropertyService> _logger;
         private readonly IApiClientFactory _apiClientFactory;
+        private readonly IMemoryCache _memoryCache;
 
-        public PropertyService(IApiClientFactory apiClientFactory, ILogger<PropertyService> logger)
+        public PropertyService(IApiClientFactory apiClientFactory, IMemoryCache memoryCache, ILogger<PropertyService> logger)
         {
             _apiClientFactory = apiClientFactory ?? throw new ArgumentNullException(nameof(apiClientFactory));
+            _memoryCache = memoryCache ?? throw new ArgumentNullException(nameof(memoryCache));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         /// <inheritdoc/>
         public async Task<IReadOnlyCollection<AgentViewModel>> GetTopAsync(int topElements)
-            => (await GetAllAsync())
-                .Select(x => x.ToViewModel())
-                .Take(Math.Min(topElements, Constants.MaxTopElements))
-                .ToList();
+        {
+            try
+            {
+                if (_memoryCache.TryGetValue(Constants.TopAgentsKey, out IReadOnlyCollection<AgentViewModel> cachedAgents))
+                {
+                    return cachedAgents;
+                }
+
+                var agents = (await GetAllAsync().ConfigureAwait(false))
+                    .Select(x => x.ToViewModel())
+                    .Take(Math.Min(topElements, Constants.MaxTopElements))
+                    .ToList();
+
+                _memoryCache.Set(Constants.TopAgentsKey, agents, new MemoryCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(Constants.ExpirationMinutes),
+                    SlidingExpiration = TimeSpan.FromMinutes(Constants.ExpirationMinutes)
+                });
+
+                return agents;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                throw;
+            }
+        }
 
         /// <summary>
         /// Gets the collection of properties grouped by real estate agent id.
@@ -50,7 +76,8 @@ namespace RealEstate.Presentation.Services
                 do
                 {
                     response = await _apiClientFactory.Create()
-                      .GetAsync(GetUri(pageNumber++));
+                      .GetAsync(GetUri(pageNumber++))
+                      .ConfigureAwait(false);
 
                     propertyGroupCollection = MergeGroupings(propertyGroupCollection, response.Objects);
                 }

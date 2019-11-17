@@ -47,7 +47,9 @@ namespace RealEstateWebApp
                     TimeSpan.FromSeconds(5),
                     TimeSpan.FromSeconds(10)
                 }));
-            services.AddSingleton<IApiClientFactory, ApiClientFactory>(); 
+            services.AddSingleton<IApiClientFactory, ApiClientFactory>();
+
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

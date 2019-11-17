@@ -38,7 +38,8 @@ namespace RealEstate.Presentation.Services
             {
                 var request = CreateRequest(HttpMethod.Get, url);
 
-                var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+                var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead)
+                    .ConfigureAwait(false);
 
                 if (!response.IsSuccessStatusCode)
                 {

@@ -14,5 +14,15 @@
         /// The default number of top elements.
         /// </summary>
         public const int TopElements = 10;
+
+        /// <summary>
+        /// The cache key for top agents.
+        /// </summary>
+        public const string TopAgentsKey = "TopAgents";
+
+        /// <summary>
+        /// The cache expiration minutes.
+        /// </summary>
+        public const int ExpirationMinutes = 30;
     }
 }

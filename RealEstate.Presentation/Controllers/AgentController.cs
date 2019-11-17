@@ -25,7 +25,7 @@ namespace RealEstate.Presentation.Controllers
         {
             try
             {
-                return View(await _propertyService.GetTopAsync(Constants.TopElements));
+                return View(await _propertyService.GetTopAsync(Constants.TopElements).ConfigureAwait(false));
             }
             catch(Exception ex)
             {
