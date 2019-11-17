@@ -19,7 +19,7 @@ namespace RealEstate.Presentation.Controllers
             _propertyService = propertyService ?? throw new ArgumentNullException(nameof(propertyService));
         }
 
-        // GET: Property
+        // GET: Agent
         [HttpGet]
         public async Task<IActionResult> Index()
         {
