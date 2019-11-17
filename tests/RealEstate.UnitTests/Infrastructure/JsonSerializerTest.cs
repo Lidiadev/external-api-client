@@ -3,6 +3,7 @@ using NUnit.Framework;
 using RealEstate.Domain.Dtos;
 using RealEstate.Presentation.Infrastructure;
 using RealEstate.Presentation.Infrastructure.Interfaces;
+using RealEstate.UnitTests.Utilities;
 using System;
 using System.IO;
 using System.Text;
@@ -14,12 +15,30 @@ namespace RealEstate.UnitTests.Common.Extensions
     [TestFixture]
     public class JsonSerializerTest
     {
-        private ISerializer<object> _subject;
+        private ISerializer<ApiResponseDto> _subject;
 
         [SetUp]
         public void Setup()
         {
-            _subject = new JsonSerializer<object>();
+            _subject = new JsonSerializer<ApiResponseDto>();
+        }
+
+        [Test]
+        public async Task DeserializeFromJsonAsync_ShouldDeserializeTheStream()
+        {
+            // Arrange
+            var bytes = Encoding.UTF8.GetBytes(TestData.ApiReponse);
+
+            // Act
+            var result = await _subject.DeserializeAsync(new MemoryStream(bytes)) as ApiResponseDto;
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Objects.Should().NotBeNull();
+            result.Objects.Count.Should().Be(3);
+            result.Pagination.Should().NotBeNull();
+            result.Pagination.CurrentPage.Should().Be(1);
+            result.Pagination.NumberOfPages.Should().Be(1);
         }
 
         [Test]
