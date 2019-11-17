@@ -14,6 +14,7 @@ Design considerations:
 
 Further improvements:
 - use Redis Cache and a worker roler to process the data and add it to the cache. The GET request will always hit the cache instead of performing expensive requests which take some time to be processed.
+- deployment in Docker. 
 
 ## Prerequirements
 
