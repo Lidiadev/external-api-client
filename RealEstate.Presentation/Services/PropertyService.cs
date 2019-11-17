@@ -45,11 +45,14 @@ namespace RealEstate.Presentation.Services
                     .Take(Math.Min(topElements, Constants.MaxTopElements))
                     .ToList();
 
-                _memoryCache.Set(Constants.TopAgentsKey, agents, new MemoryCacheEntryOptions
+                if (agents.Count > 0)
                 {
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(Constants.ExpirationMinutes),
-                    SlidingExpiration = TimeSpan.FromMinutes(Constants.ExpirationMinutes)
-                });
+                    _memoryCache.Set(Constants.TopAgentsKey, agents, new MemoryCacheEntryOptions
+                    {
+                        AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(Constants.ExpirationMinutes),
+                        SlidingExpiration = TimeSpan.FromMinutes(Constants.ExpirationMinutes)
+                    });
+                }
 
                 return agents;
             }
