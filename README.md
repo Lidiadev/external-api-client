@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.com/Lidiadev/external-api-client.png?branch=master)](https://travis-ci.com/Lidiadev/external-api-client)
 
 RealEstate is an ASP.NET Core MVC web application with the following feature:
-- get top 10 real estate agents with the most properties.
+- get the top 10 real estate agents with the most properties.
 
 ## Prerequirements
 
