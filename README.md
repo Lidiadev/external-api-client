@@ -17,17 +17,17 @@ RealEstate is an ASP.NET Core MVC web application with the following feature:
 
 ## Solution Overview
 
-### RealEstate.Domain
+#### RealEstate.Domain
 - DTOs
 
-### RealEstate.Presentation
+#### RealEstate.Presentation
 - ASP.NET Core Web MVC
 - Application contracts and implementation.
 
-### RealEstate.UnitTests
+#### RealEstate.UnitTests
 - Unit tests for all layers.
 
-### RealEstate.IntegrationsTests
+#### RealEstate.IntegrationsTests
 - Integration tests for getting the agents list.
 
 ## Continuous Integration
@@ -37,7 +37,8 @@ Each pushed commit runs the unit tests.
 
 ## How to Run the Application
 * Replace in [appsettings.json](https://github.com/Lidiadev/external-api-client/blob/master/RealEstate.Presentation/appsettings.json) the `APIKey` and the `PartnerAPI` base Url:
-``` "PartnerAPI": {
+``` 
+    "PartnerAPI": {
         "APIKey": "TBR"
     },
     "BaseUrls": {
