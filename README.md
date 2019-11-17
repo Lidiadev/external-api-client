@@ -51,6 +51,21 @@ Each pushed commit runs the unit tests.
 /// </summary>
 public const string SaleObjectsPath = "TBR";
 ```
+## Polly 
+Polly is a library that provides resilience and transient-fault handling capabilities.
+Polly has been used to define a `Retry policy` for the `HttpClient`:
+```
+ services.AddHttpClient<ApiClient>(x => 
+        {
+            x.BaseAddress = new Uri(baseUrls.PartnerAPI); 
+        })
+        .AddTransientHttpErrorPolicy(builder => builder.WaitAndRetryAsync(new[]
+        {
+            TimeSpan.FromSeconds(1),
+            TimeSpan.FromSeconds(5),
+            TimeSpan.FromSeconds(10)
+        }));
+```
 
 ## How To Run Unit Tests
 
