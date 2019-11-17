@@ -5,6 +5,13 @@
 RealEstate is an ASP.NET Core MVC web application with the following feature:
 - get the top 10 real estate agents with the most properties.
 
+Design considerations:
+* In order to get the top 10 real estate agents, the `PropertyService` is making calls to the PartnerAPI. 
+* Because the external API is returning a paginated response, all the pages have to be retrieved to be able to get the top 10 agents.
+* In order to minimize the data stored in memory, every time a partial list is retrieved, the list of the top 10 is computed in place. That means that there won't be more than the size of the page agents stored in memory.
+* Cache is used to improve performance.
+* Retry pattern is used with Polly.
+
 ## Prerequirements
 
 * Visual Studio 2017 
