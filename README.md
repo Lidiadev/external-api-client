@@ -12,6 +12,9 @@ Design considerations:
 * Cache is used to improve performance.
 * Retry pattern is used with Polly.
 
+Further improvements:
+- use Redis Cache and a worker roler to process the data and add it to the cache. The GET request will always hit the cache instead of performing expensive requests which take some time to be processed.
+
 ## Prerequirements
 
 * Visual Studio 2017 
