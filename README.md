@@ -19,7 +19,7 @@ Further improvements:
 
 ## Prerequirements
 
-* Visual Studio 2017 
+* Visual Studio 2019 
 * .NET Core 3.0.1 SDK 
 
 ## Frameworks Used
